@@ -30,5 +30,5 @@ private:
 	float m_speed = 0.0f;						// 移動速度
 	bool  m_isgrab = false;						//現在掴まれているかの判定
 	float m_gravity = 0.0f;						//重力
-	const float m_gravityacc = 0.008f;			//重力加速度
+	const float m_gravityAcc = 0.008f;			//重力加速度
 };

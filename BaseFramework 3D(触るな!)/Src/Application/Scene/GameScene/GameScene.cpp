@@ -1,7 +1,7 @@
 ﻿#include "GameScene.h"
-#include"../SceneManager.h"
-#include"../../GameObject/`Player/Player.h"
-#include"../../GameObject/Ice/Ice.h"
+#include "../SceneManager.h"
+#include "../../GameObject/`Player/Player.h"
+#include "../../GameObject/Ice/Ice.h"
 #include "../../GameObject/FeverGauge/FeverGauge.h"
 
 void GameScene::Event()

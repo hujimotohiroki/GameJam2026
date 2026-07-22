@@ -1,9 +1,10 @@
 ﻿#include "GameScene.h"
 #include"../SceneManager.h"
+#include"../../GameObject/`Player/Player.h"
 
 void GameScene::Event()
 {
-	if (GetAsyncKeyState('T') & 0x8000)
+	if (GetAsyncKeyState('P') & 0x8000)
 	{
 		SceneManager::Instance().SetNextScene
 		(
@@ -14,4 +15,8 @@ void GameScene::Event()
 
 void GameScene::Init()
 {
+	std::shared_ptr<Player> player;
+	player = std::make_shared<Player>();
+	player->Init();
+	m_objList.push_back(player);
 }

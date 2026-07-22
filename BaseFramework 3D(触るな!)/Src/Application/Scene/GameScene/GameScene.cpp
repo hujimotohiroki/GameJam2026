@@ -2,6 +2,7 @@
 #include"../SceneManager.h"
 #include"../../GameObject/`Player/Player.h"
 #include"../../GameObject/Ice/Ice.h"
+#include "../../GameObject/FeverGauge/FeverGauge.h"
 
 void GameScene::Event()
 {
@@ -25,4 +26,9 @@ void GameScene::Init()
 	ice = std::make_shared<Ice>();
 	ice->Init();
 	m_objList.push_back(ice);
+
+	std::shared_ptr<FeverGauge> gauge;
+	gauge = std::make_shared<FeverGauge>();
+	gauge->Init();
+	m_objList.push_back(gauge);
 }

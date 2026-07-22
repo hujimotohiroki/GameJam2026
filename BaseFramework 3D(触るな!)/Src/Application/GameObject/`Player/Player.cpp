@@ -1,4 +1,6 @@
 ﻿#include "Player.h"
+#include"../../Scene/SceneManager.h"
+#include"../Ice/Ice.h"
 
 void Player::Init()
 {
@@ -52,18 +54,18 @@ void Player::Update()
 
 	m_polygon->SetUVRect(animeCnt);
 
-	m_move.x = 0;
+	m_dir = {};
 
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
 	{
 		m_moveFlg = true;
-		m_move.x = -0.02f;
+		m_dir = { -1,0,0 };
 		m_scale.x = -1.0f;
 	}
 	else if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
 	{
 		m_moveFlg = true;
-		m_move.x = 0.02f;
+		m_dir = { 1,0,0 };
 		m_scale.x = 1.0f;
 	}
 	else
@@ -73,10 +75,14 @@ void Player::Update()
 
 	if (GetAsyncKeyState('T') & 0x8000)
 	{
-
+		std::shared_ptr<Ice> ice;
+		ice = std::make_shared<Ice>();
+		ice->Init();
+		ice->SetState(m_pos + Math::Vector3(0, 0.15, 0), m_dir, m_speed);
+		SceneManager::Instance().AddObject(ice);
 	}
 
-	m_pos += m_move;
+	m_pos += m_dir * m_speed;
 
 	Math::Matrix scaleMat = Math::Matrix::CreateScale(m_scale);
 	Math::Matrix transMat = Math::Matrix::CreateTranslation(m_pos);

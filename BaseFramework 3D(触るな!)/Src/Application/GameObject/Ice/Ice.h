@@ -10,8 +10,9 @@ public:
 	void PostUpdate() override;
 	void DrawLit() override;
 
-	void SetState(Math::Vector3 dir,float speed)		// プレイヤーからの移動方向と速度の設定
+	void SetState(Math::Vector3 pos,Math::Vector3 dir,float speed)		// プレイヤーからの移動方向と速度の設定
 	{
+		m_pos = pos;
 		m_dir = dir; 
 		m_speed = speed;
 	} 
@@ -23,6 +24,8 @@ private:
 
 	Math::Vector3 m_pos = Math::Vector3::Zero;	// 現在の座標
 	Math::Vector3 m_dir = Math::Vector3::Zero;	// 移動方向
+
+	Math::Vector3 m_scale = { 0.5,0.5,0.5 };
 	
 	float m_speed = 0.0f;						// 移動速度
 	bool  m_isgrab = false;						//現在掴まれているかの判定

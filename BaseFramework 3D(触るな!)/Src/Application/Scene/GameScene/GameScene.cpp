@@ -20,6 +20,7 @@ void GameScene::Init()
 	player = std::make_shared<Player>();
 	player->Init();
 	m_objList.push_back(player);
+
 	std::shared_ptr<Ice> ice;
 	ice = std::make_shared<Ice>();
 	ice->Init();

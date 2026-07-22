@@ -57,7 +57,8 @@ void Ice::PostUpdate()
 		m_dir.Normalize();
 	}
 	Math::Matrix transMat = Math::Matrix::CreateTranslation(m_pos);
-	m_mWorld = transMat;
+	Math::Matrix scaleMat = Math::Matrix::CreateScale(m_scale);
+	m_mWorld = scaleMat * transMat;
 }
 
 void Ice::DrawLit()

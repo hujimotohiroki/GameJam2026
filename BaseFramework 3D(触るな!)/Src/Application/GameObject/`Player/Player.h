@@ -38,9 +38,10 @@ private:
 	UINT m_animType = 0;
 
 	Math::Vector3 m_pos = { 0,-1,0 };
-	Math::Vector3 m_move = { 0,0,0 };
+	Math::Vector3 m_dir = { 0,0,0 };
 	Math::Vector3 m_scale = { 1,1,1 };
 
 	bool m_moveFlg = false;
+	float m_speed = 0.03f;
 
 };
